@@ -2,6 +2,14 @@
 
 Built a news recommender system to predict users' next-clicked article from historical click logs using candidate generation and ranking baselines.
 
+## 30-Second Snapshot
+
+- **Dataset**: 2.41M click rows across train/test files, 364K articles.
+- **Task**: next-click prediction from user historical behavior.
+- **Offline setup**: leave-one-out validation on 5,000 sampled users.
+- **Best baseline**: ItemCF reaches **Recall@20 = 0.4962**, **MRR@20 = 0.2118**.
+- **Practical takeaway**: retrieval + ranking decomposition is effective and production-friendly.
+
 ## Results First
 
 ### Dataset Size
