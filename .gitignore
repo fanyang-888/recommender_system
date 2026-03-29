@@ -1,0 +1,23 @@
+﻿# Data and generated artifacts
+data/data_raw/
+data/temp_results/
+
+# Common local files
+*.csv
+!README.md
+!.gitignore
+
+# Notebook cache
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local backups
+Copy of *
