@@ -16,10 +16,11 @@ Given each user's historical click sequence, predict the most likely next-clicke
 ### Offline Metrics (summary)
 - Evaluation protocol: Recall-style candidate evaluation and top-K ranking quality checks.
 - Core metrics: **Recall@20**, **MRR@20**, **HitRate@20**
-- Current status: **metrics table will be filled from notebook evaluation export**
+- Evaluation setup: leave-one-out validation on **5,000 sampled training users**.
 
 ### Best Model vs Baseline
-- Placeholder (to be filled after metric extraction): **TBD**
+- Best Recall@20: **ItemCF (0.4962)** vs **Popularity baseline (0.4326)**, absolute gain **+0.0636**.
+- Best MRR@20: **ItemCF (0.2118)** vs **Popularity baseline (0.1418)**, absolute gain **+0.0700**.
 
 ### Top Business Takeaway
 - Even simple retrieval + ranking decomposition gives a practical path from prototype to deployable recommendation systems.
@@ -38,6 +39,17 @@ flowchart LR
 - **Candidate generation** narrows the search space from all articles to a relevant top-K set.
 - **Feature engineering + ranking** estimates fine-grained click likelihood among candidates.
 - **Offline evaluation** quantifies retrieval and ranking quality before any online deployment.
+
+## Experiment Results
+
+| Model | Recall@20 | MRR@20 | HitRate@20 |
+| :-- | --: | --: | --: |
+| Popularity baseline | 0.4326 | 0.1418 | 0.4326 |
+| ItemCF | 0.4962 | 0.2118 | 0.4962 |
+| Embedding recall | 0.2458 | 0.0566 | 0.2458 |
+| Ranker (hybrid) | 0.4574 | 0.1921 | 0.4574 |
+
+Metric source: exported from `notebook/Model.ipynb` offline evaluation section.
 
 ## Project Structure
 - `notebook/`
