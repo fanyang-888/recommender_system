@@ -1,4 +1,4 @@
-﻿# News Recommender System (30-second recruiter view)
+# News Recommender System (30-second recruiter view)
 
 Built a news recommender system to predict users' next-clicked article from historical click logs using candidate generation and ranking baselines.
 
@@ -23,6 +23,21 @@ Given each user's historical click sequence, predict the most likely next-clicke
 
 ### Top Business Takeaway
 - Even simple retrieval + ranking decomposition gives a practical path from prototype to deployable recommendation systems.
+
+## Method Framework
+
+```mermaid
+flowchart LR
+  rawClickLogs[RawClickLogs] --> preprocessing[Preprocessing]
+  preprocessing --> candidateGeneration[CandidateGeneration]
+  candidateGeneration --> featureEngineering[FeatureEngineering]
+  featureEngineering --> rankingModel[RankingModel]
+  rankingModel --> offlineEvaluation[OfflineEvaluation]
+```
+
+- **Candidate generation** narrows the search space from all articles to a relevant top-K set.
+- **Feature engineering + ranking** estimates fine-grained click likelihood among candidates.
+- **Offline evaluation** quantifies retrieval and ranking quality before any online deployment.
 
 ## Project Structure
 - `notebook/`
