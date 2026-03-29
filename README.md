@@ -51,6 +51,28 @@ flowchart LR
 
 Metric source: exported from `notebook/Model.ipynb` offline evaluation section.
 
+## Recommendation Output Example
+
+Example user (illustrative format from the notebook inference flow):
+
+- History clicks: `[article_1024, article_877, article_65021, article_9012]`
+- Retrieved Top-K candidates (K=10): `[article_9012, article_441, article_11870, article_3002, article_7744, article_811, article_52300, article_9872, article_22017, article_611]`
+- Re-ranked Top-5 recommendations: `[article_441, article_11870, article_7744, article_3002, article_811]`
+
+The output shape follows the repository submission format (`user_id + article_1...article_5`).
+
+## Conclusions and Limitations
+
+- Cold-start remains a practical bottleneck, especially for fresh articles with sparse interactions.
+- Offline metrics are useful for iteration speed, but do not directly guarantee online CTR uplift.
+- The current implementation is notebook-first; engineering next step is modular pipeline packaging.
+
+## Next Steps
+
+- Split retrieval and ranking into reusable Python modules.
+- Add experiment tracking for versioned metrics and parameter sweeps.
+- Prepare an online serving interface and A/B-test-ready evaluation loop.
+
 ## Project Structure
 - `notebook/`
   - `Data_Analysis.ipynb`: data exploration and preprocessing flow.
